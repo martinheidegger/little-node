@@ -24,4 +24,4 @@ RUN mkdir -p /usr/src/app \
     && su node -c "npm i npm@latest -g" \
     && rm -rf /var/lib/apt/lists/* /usr/share/perl* || true
 
-USE node
+USER node
