@@ -21,7 +21,7 @@ RUN mkdir -p /usr/src/app \
        NODE_VERSION="v6.10.2" \
        NODE_VARIANT="make" \
        bash \
-    && rm -rf /var/lib/apt/lists/* /usr/share/perl* || true
     && su node -c "npm i npm@latest -g" \
+    && rm -rf /var/lib/apt/lists/* /usr/share/perl* || true
 
-USER node
+USEmmnode
