@@ -31,6 +31,7 @@ RUN mkdir -p /usr/src/app \\
        NODE_VERSION="${NODE_VERSION}" \\
        NODE_VARIANT="make" \\
        bash \\
+    && npm i npm@latest -g \\
     && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/perl* /usr/share/man || true
 
 DOCKERFILE
