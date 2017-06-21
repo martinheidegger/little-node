@@ -7,8 +7,6 @@ if [[ -n $(git status --porcelain) ]]; then
   exit 1
 fi
 
-git checkout -b "${NODE_VERSION}" 2>/dev/null || git checkout "${NODE_VERSION}"
-
 read -r -d '' Dockerfile << DOCKERFILE
 
 FROM alpine:latest
