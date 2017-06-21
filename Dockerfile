@@ -12,7 +12,7 @@ ENV BUNDLE_PATH=/usr/local/bundle
 RUN mkdir -p /usr/src/app \
     && apk update \
     && apk add --no-cache make bash gcc g++ man linux-headers curl git openssl openssh-client \
-                          python binutils-gold linux-headers gnupg libgcc \
+                          python binutils-gold linux-headers gnupg tar libgcc \
     ## For the build of node
     && curl -sL https://raw.githubusercontent.com/martinheidegger/install-node/master/install_node.sh | \
        NODE_VERSION="v6.10.2" \
