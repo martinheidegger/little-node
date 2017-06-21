@@ -23,6 +23,9 @@ ENV BUNDLE_PATH=/usr/local/bundle
 # for packages: man
 # for ci: bash
 RUN mkdir -p /usr/src/app \\
+    && adduser -D node \\
+    && chown -R node /usr/src \\
+    && chown -R node /usr/local \\
     && apk update \\
     && apk add --no-cache make bash gcc g++ man linux-headers curl git openssl openssh-client \\
                           python binutils-gold gnupg tar libgcc \\
@@ -31,8 +34,10 @@ RUN mkdir -p /usr/src/app \\
        NODE_VERSION="${NODE_VERSION}" \\
        NODE_VARIANT="make" \\
        bash \\
-    && npm i npm@latest -g \\
     && rm -rf /var/lib/apt/lists/* /usr/share/perl* || true
+    && su node -c "npm i npm@latest -g" \\
+
+USER node
 
 DOCKERFILE
 
