@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NODE_VERSION="$(git rev-parse --abbrev-ref HEAD)"
+NODE_VERSION="v8.1.2"
 
 if [[ -n $(git status --porcelain) ]]; then
   echo "GIT Dirty!"
