@@ -15,7 +15,7 @@ RUN mkdir -p /usr/src/app \
                           python binutils-gold linux-headers gnupg libgcc \
     ## For the build of node
     && curl -sL https://raw.githubusercontent.com/martinheidegger/install-node/master/install_node.sh | \
-       NODE_VERSION="v6.10.1" \
+       NODE_VERSION="v6.10.2" \
        NODE_VARIANT="make" \
        bash \
     && npm i npm@latest -g \
