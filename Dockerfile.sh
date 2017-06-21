@@ -45,6 +45,6 @@ echo "${Dockerfile}" > Dockerfile
 git add Dockerfile
 if [[ -n $(git status --porcelain) ]]; then
   git commit -m "Updated Dockerfile"
-  git push -f -u origin "${NODE_VERSION}"
+  git push -f -u origin "master"
 fi
 
