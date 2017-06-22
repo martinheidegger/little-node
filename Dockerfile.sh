@@ -32,7 +32,7 @@ RUN mkdir -p /usr/src/app \\
        NODE_VERSION="${NODE_VERSION}" \\
        NODE_VARIANT="make" \\
        bash \\
-    && su node -c "npm i npm@latest -g" \\
+    && npm i npm@latest -g \\
     && rm -rf /var/lib/apt/lists/* /usr/share/perl* || true
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
