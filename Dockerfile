@@ -9,19 +9,18 @@ ENV BUNDLE_PATH=/usr/local/bundle
 # for npm installation and other use-cases: tar
 # for packages: man
 # for ci: bash
+# for mounted volume permissions: su-exec
 RUN mkdir -p /usr/src/app \
-    && adduser -D node \
-    && chown -R node /usr/src \
-    && chown -R node /usr/local \
     && apk update \
     && apk add --no-cache make bash gcc g++ man linux-headers curl git openssl openssh-client \
-                          python binutils-gold gnupg tar libgcc \
+                          python binutils-gold gnupg tar libgcc su-exec \
     ## For the build of node
     && curl -sL https://raw.githubusercontent.com/martinheidegger/install-node/master/install_node.sh | \
        NODE_VERSION="v8.1.2" \
        NODE_VARIANT="make" \
        bash \
-    && su node -c "npm i npm@latest -g" \
+    && npm i npm@latest -g \
     && rm -rf /var/lib/apt/lists/* /usr/share/perl* || true
 
-USER node
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
